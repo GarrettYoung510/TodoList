@@ -17,3 +17,8 @@ input[type="text"]:focus {
 .delete {
   cursor: pointer;
 }
+
+.filtered {
+    /* !important increases precendence over other styles */
+  display: none !important;
+}

@@ -1,6 +1,8 @@
 const addForm = document.querySelector(".add");
 // pulls first class with todos in it
 const list = document.querySelector(".todos");
+// query selector for the input field within the element with search in the class
+const search = document.querySelector(".search input");
 
 const generateTemplate = todo => {
   const html = `
@@ -33,4 +35,25 @@ list.addEventListener("click", e => {
     // deletes parent element
     e.target.parentElement.remove();
   }
+});
+
+
+const filterTodos = term => {
+//   adds class filtered to those that do not match the term or what was entered into search bar
+    Array.from(list.children)
+    .filter(todo => !todo.textContent.includes(term))
+    .forEach(todo => todo.classList.add("filtered"));
+
+// removes filtered class 
+  Array.from(list.children)
+    .filter(todo => todo.textContent.includes(term))
+    .forEach(todo => todo.classList.remove("filtered"));
+};
+
+// search todo
+search.addEventListener("keyup", () => {
+  //   what user inputs in search bar
+  const term = search.value.trim();
+    // helper function
+  filterTodos(term);
 });
