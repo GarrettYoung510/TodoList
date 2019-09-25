@@ -41,19 +41,19 @@ list.addEventListener("click", e => {
 const filterTodos = term => {
 //   adds class filtered to those that do not match the term or what was entered into search bar
     Array.from(list.children)
-    .filter(todo => !todo.textContent.includes(term))
+    .filter(todo => !todo.textContent.toLowerCase().includes(term))
     .forEach(todo => todo.classList.add("filtered"));
 
 // removes filtered class 
   Array.from(list.children)
-    .filter(todo => todo.textContent.includes(term))
+    .filter(todo => todo.textContent.toLowerCase().includes(term))
     .forEach(todo => todo.classList.remove("filtered"));
 };
 
 // search todo
 search.addEventListener("keyup", () => {
   //   what user inputs in search bar
-  const term = search.value.trim();
+  const term = search.value.trim().toLowerCase();
     // helper function
   filterTodos(term);
 });
