@@ -1,4 +1,4 @@
-# [Todo List] (https://garrettyoung510.github.io/vanilla-todo/)
+[Todo List](https://garrettyoung510.github.io/vanilla-todo/)
 
 ## Reasoning/Motivation
 
